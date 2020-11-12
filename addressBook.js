@@ -25,6 +25,25 @@ let displayContacts = () => {
         console.log("\nNo contacts to display!");
 }
 
+let findContactByName = () => {
+    console.log("\n");
+    let firstName = prompt("Enter contact's  firstName: ");
+    let lastName = prompt("Enter contact's lastName: ");
+    let contact = addressbookArray.find(con => (con.firstName + con.lastName) == (firstName + lastName));
+    if (contact != null || contact != undefined)
+        console.log("\ncontact found!\n" + contact.toString());
+    else
+        console.log("No contact found!");
+    return contact;
+};
+
+let editContactByName = () => {
+    let contact = findContactByName();
+    if (contact != undefined && editOrAddContact(contact)) {
+        console.log("\ncontacts edited successfully");
+    }
+};
+
 let editOrAddContact = (contact) => {
     try {
         let firstName = prompt("Enter first name: ");
@@ -58,4 +77,4 @@ let editOrAddContact = (contact) => {
     }
 }
 
-export { addContact, displayContacts };
+export { addContact, displayContacts, findContactByName, editContactByName };
