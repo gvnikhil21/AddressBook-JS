@@ -6,6 +6,10 @@ const prompt = require('prompt-sync')({ sigint: true });
 
 let addressbookArray = new Array();
 
+let getAddressBookArray = () => {
+    return addressbookArray;
+}
+
 let addContact = () => {
     let contact = new Contact();
     if (editOrAddContact(contact)) {
@@ -154,5 +158,7 @@ let editOrAddContact = (contact) => {
     }
 }
 
-export { addContact, displayContacts, findContactByName, editContactByName, deleteContactByName, countContacts, 
-    searchContactByCity, searchContactByState, viewContactsByCity, viewContactsByState, countByCity, countByState };
+export {
+    addContact, displayContacts, findContactByName, editContactByName, deleteContactByName, countContacts,
+    searchContactByCity, searchContactByState, viewContactsByCity, viewContactsByState, countByCity, countByState, getAddressBookArray
+};
