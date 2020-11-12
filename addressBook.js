@@ -9,8 +9,13 @@ let addressbookArray = new Array();
 let addContact = () => {
     let contact = new Contact();
     if (editOrAddContact(contact)) {
-        addressbookArray.push(contact);
-        console.log("\ncontact successfully added...");
+        let contactOne = addressbookArray.find(con => (con.firstName + con.lastName) == (contact.firstName + contact.lastName));
+        if (contactOne == undefined) {
+            addressbookArray.push(contact);
+            console.log("\ncontact successfully added...");
+        }
+        else
+            console.log("\ncontact with same name already exists...\n try adding with another name");
     }
     else
         console.log("\ncontact not added...");
