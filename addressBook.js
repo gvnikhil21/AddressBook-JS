@@ -61,7 +61,34 @@ let countContacts = () => {
     console.log("There are " + count + " contacts");
 }
 
-let getContactsByCity = () => {
+let searchContactByCity = () => {
+    let city = prompt("Enter the name of the city: ");
+    let firstName = prompt("Enter contact's first name: ");
+    let lastName = prompt("Enter contact's last name: ");
+    let contact = addressbookArray.filter(con => con.city == city).find(con => (con.firstName + con.lastName) == (firstName + lastName));
+    if (contact != undefined) {
+        console.log("\nContact found...");
+        console.log(contact.toString());
+    }
+    else
+        console.log("\ncontact not found");
+}
+
+let searchContactByState = () => {
+    let state = prompt("Enter the name of the state: ");
+    let firstName = prompt("Enter contact's first name: ");
+    let lastName = prompt("Enter contact's last name: ");
+    let contact = addressbookArray.filter(con => con.state == state).find(con => (con.firstName + con.lastName) == (firstName + lastName));
+    if (contact != undefined) {
+        console.log("\nContact found...");
+        console.log(contact.toString());
+    }
+    else
+        console.log("\ncontact not found");
+}
+
+
+let viewContactsByCity = () => {
     let city = prompt("Enter the name of city to get contacts: ");
     let cityContact = addressbookArray.filter(con => con.city == city);
     if (cityContact.length != 0) {
@@ -72,7 +99,7 @@ let getContactsByCity = () => {
         console.log("\nNo contacts found in " + city + " city");
 }
 
-let getContactsByState = () => {
+let viewContactsByState = () => {
     let state = prompt("Enter the name of state to get contacts: ");
     let stateContact = addressbookArray.filter(con => con.state == state);
     if (stateContact.length != 0) {
@@ -116,4 +143,4 @@ let editOrAddContact = (contact) => {
     }
 }
 
-export { addContact, displayContacts, findContactByName, editContactByName, deleteContactByName, countContacts, getContactsByCity, getContactsByState };
+export { addContact, displayContacts, findContactByName, editContactByName, deleteContactByName, countContacts, searchContactByCity, searchContactByState, viewContactsByCity, viewContactsByState };
