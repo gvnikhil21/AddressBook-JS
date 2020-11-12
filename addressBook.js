@@ -51,6 +51,11 @@ let deleteContactByName = () => {
     }
 }
 
+let countContacts = () => {
+    let count = addressbookArray.reduce(totalCount => totalCount += 1, 0);
+    console.log("There are " + count + " contacts");
+}
+
 let editOrAddContact = (contact) => {
     try {
         let firstName = prompt("Enter first name: ");
@@ -84,4 +89,4 @@ let editOrAddContact = (contact) => {
     }
 }
 
-export { addContact, displayContacts, findContactByName, editContactByName, deleteContactByName };
+export { addContact, displayContacts, findContactByName, editContactByName, deleteContactByName, countContacts };
