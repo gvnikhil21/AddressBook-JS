@@ -1,29 +1,24 @@
-import { Contact } from "./contact.js";
-import * as validation from "./validation.js";
+import * as addressBook from "./addressBook.js";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const prompt = require('prompt-sync')({ sigint: true });
 
-try {
-    let firstName = prompt("Enter first name: ");
-    validation.validateName(firstName);
-    let lastName = prompt("Enter last name: ");
-    validation.validateName(lastName);
-    let address = prompt("Enter address: ");
-    validation.validateAddress(address);
-    let city = prompt("Enter city: ");
-    validation.validateCity(city);
-    let state = prompt("Enter state: ");
-    validation.validateState(state);
-    let zip = prompt("Enter zip: ");
-    validation.validateZip(zip);
-    let phone = prompt("Enter phone no.: ");
-    validation.validatePhone(phone);
-    let email = prompt("Enter email-id: ");
-    validation.validateEmail(email);
-    let contact = new Contact(firstName, lastName, address, city, state, zip, phone, email);
-    console.log("\ncontact successfully added...");
-    console.log(contact.toString());
-} catch (error) {
-    console.error(error);
-}
+let choice = 0;
+do {
+    console.log("\n1. Add Contact\n2. Display contacts\n3. Exit");
+    choice = Number(prompt("Enter your choice number: "));
+    switch (choice) {
+        case 1:
+            addressBook.addContact();
+            break;
+        case 2:
+            addressBook.displayContacts();
+            break;
+        case 3:
+            console.log("Thank you! You have now quit the program.");
+            break;
+        default:
+            console.log("Invalid Choice! Enter proper choice number");
+            break;
+    }
+} while (choice != 3);

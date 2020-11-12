@@ -35,7 +35,7 @@ class Contact {
     set email(email) { this._email = email; }
 
     toString() {
-        return `FirstName: ${this.firstName}\nLastName: ${this.lastName}\nAddress: ${this.address}\nCity: ${this.city}\nState: ${this.state}\nZip: ${this.zip}\nPhone: ${this.phone}\nEmail: ${this.email}`;
+        return `FirstName: ${this.firstName}\nLastName: ${this.lastName}\nAddress: ${this.address}\nCity: ${this.city}\nState: ${this.state}\nZip: ${this.zip}\nPhone: ${this.phone}\nEmail: ${this.email}\n`;
     }
 };
 
