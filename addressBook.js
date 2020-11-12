@@ -26,7 +26,6 @@ let displayContacts = () => {
 }
 
 let findContactByName = () => {
-    console.log("\n");
     let firstName = prompt("Enter contact's  firstName: ");
     let lastName = prompt("Enter contact's lastName: ");
     let contact = addressbookArray.find(con => (con.firstName + con.lastName) == (firstName + lastName));
@@ -40,9 +39,17 @@ let findContactByName = () => {
 let editContactByName = () => {
     let contact = findContactByName();
     if (contact != undefined && editOrAddContact(contact)) {
-        console.log("\ncontacts edited successfully");
+        console.log("contacts edited successfully");
     }
 };
+
+let deleteContactByName = () => {
+    let contact = findContactByName();
+    if (contact != undefined) {
+        addressbookArray = addressbookArray.filter(con => con != contact);
+        console.log("contacts deleted successfully");
+    }
+}
 
 let editOrAddContact = (contact) => {
     try {
@@ -77,4 +84,4 @@ let editOrAddContact = (contact) => {
     }
 }
 
-export { addContact, displayContacts, findContactByName, editContactByName };
+export { addContact, displayContacts, findContactByName, editContactByName, deleteContactByName };
